@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import Logo from "./Logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -21,13 +22,10 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 p-5">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 mr-4">
-          <svg width="32" height="32" viewBox="0 0 100 100" className="text-primary">
-            <rect width="100" height="100" rx="20" fill="currentColor"/>
-            <text x="50" y="65" fontFamily="Inter, sans-serif" fontSize="50" fill="hsl(var(--primary-foreground))" textAnchor="middle" fontWeight="bold">YF</text>
-          </svg>
+          <Logo className="h-8 w-auto" />
           <span className="font-bold text-lg whitespace-nowrap">Y.F. Enterprises</span>
         </Link>
 
