@@ -19,7 +19,7 @@ const products = {
   ],
   stabilizers: [
     { name: "Servo Voltage Stabilizer", type: "Air Cooled & Oil Cooled", hint: "industrial voltage stabilizer", description: "Precise voltage correction for sensitive industrial machinery." },
-    { name:g: "Static Voltage Stabilizer", type: "Fast Correction", hint: "precision voltage regulator", description: "Ultra-fast voltage regulation for IT and medical equipment." },
+    { name: "Static Voltage Stabilizer", type: "Fast Correction", hint: "precision voltage regulator", description: "Ultra-fast voltage regulation for IT and medical equipment." },
   ],
 };
 
