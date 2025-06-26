@@ -31,14 +31,14 @@ export default function AboutPage() {
       <section className="py-12 md:py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-primary font-headline">About Y.F. Enterprises</h1>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
+          <p className="mt-4 min-w-full mx-auto text-lg text-foreground/80">
             Your steadfast partner in power solutions since 2016.
           </p>
         </div>
       </section>
 
       <section className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 ">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-primary">Our Journey of Powering India</h2>
@@ -50,18 +50,18 @@ export default function AboutPage() {
               </p>
             </div>
             <div>
-              <Image
+              <img
                 src="https://placehold.co/600x400"
                 alt="Y.F. Enterprises Team"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg"
+               
+                className="rounded-lg w-full shadow-lg"
                 data-ai-hint="team meeting"
               />
             </div>
           </div>
         </div>
       </section>
+   
       
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
