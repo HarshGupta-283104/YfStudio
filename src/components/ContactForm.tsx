@@ -20,7 +20,6 @@ const formSchema = z.object({
 
 export function ContactForm() {
   const { toast } = useToast();
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,22 +30,42 @@ export function ContactForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real app, you would send this to a backend endpoint.
-    // e.g., send to info@yfenterprises.in
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
 
-    toast({
-      title: "Inquiry Sent!",
-      description: "Thank you for your message. We will get back to you shortly.",
-      variant: "default"
-    });
-    form.reset();
+      if (res.ok) {
+        toast({
+          title: "Inquiry Sent!",
+          description: "Thank you for your message. We will get back to you shortly.",
+          variant: "default",
+        });
+        form.reset();
+      } else {
+        const errorData = await res.json();
+        toast({
+          title: "Error",
+          description: errorData.error || "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Network error. Please check your connection and try again.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        {/* Full Name */}
         <FormField
           control={form.control}
           name="name"
@@ -60,6 +79,8 @@ export function ContactForm() {
             </FormItem>
           )}
         />
+
+        {/* Email */}
         <FormField
           control={form.control}
           name="email"
@@ -73,6 +94,8 @@ export function ContactForm() {
             </FormItem>
           )}
         />
+
+        {/* Service */}
         <FormField
           control={form.control}
           name="service"
@@ -99,6 +122,8 @@ export function ContactForm() {
             </FormItem>
           )}
         />
+
+        {/* Message */}
         <FormField
           control={form.control}
           name="message"
@@ -112,6 +137,8 @@ export function ContactForm() {
             </FormItem>
           )}
         />
+
+        {/* Submit */}
         <Button type="submit" className="w-full">Send Message</Button>
       </form>
     </Form>

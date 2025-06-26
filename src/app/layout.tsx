@@ -28,7 +28,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased bg-background text-foreground">
         <Header />
-        <main className="flex-grow">{children}</main>
+        <main className="">{children}</main>
         <Footer />
         <WhatsAppButton />
         <Toaster />
